@@ -13,9 +13,9 @@ use cargo::{
     core::{Package, SourceId, Workspace},
     ops::{
         cargo_add::{add, AddOptions, DepOp},
-        init, NewOptions, VersionControl,
+        compile, init, CompileOptions, NewOptions, VersionControl,
     },
-    util::{toml::TomlManifest, toml_mut::manifest::DepTable},
+    util::{command_prelude::CompileMode, toml::TomlManifest, toml_mut::manifest::DepTable},
     Config,
 };
 use clap::{Parser, Subcommand};
@@ -87,9 +87,9 @@ fn init_aoc(name: String) -> Result<(), Box<dyn Error>> {
 
     init_tasks(path.clone())?;
 
-    // let workspace = Workspace::new(&manifest_path, &config)?;
-    // let compile_options = CompileOptions::new(&config, CompileMode::Build)?;
-    // compile(&workspace, &compile_options)?;
+    let workspace = Workspace::new(&manifest_path, &config)?;
+    let compile_options = CompileOptions::new(&config, CompileMode::Build)?;
+    compile(&workspace, &compile_options)?;
 
     println!("AoC Crate `{name}` has been created and compiled successfuly!");
 
