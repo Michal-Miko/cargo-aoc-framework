@@ -1,0 +1,12 @@
+[package]
+name = "cargo-aoc-framework"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cargo = "0.73.1"
+clap = { version = "4.4.4", features = ["derive"] }
+indoc = "2.0.4"
+toml = "0.8.0"
