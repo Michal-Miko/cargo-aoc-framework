@@ -21,7 +21,7 @@ use cargo::{
 use clap::{Parser, Subcommand};
 use templates::{render_day_module, render_main};
 
-/// Cargo plugin for generating an empty AoC Frameowrk project
+/// Cargo plugin for generating an empty AoC Framework project
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 struct Args {
